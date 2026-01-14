@@ -1,0 +1,36 @@
+<h2>Pending Issue Requests</h2>
+
+<table border="1">
+<tr>
+  <th>User</th>
+  <th>Book</th>
+  <th>Action</th>
+</tr>
+
+<% if (pendingRequests.length === 0) { %>
+<tr>
+  <td colspan="3">No pending requests</td>
+</tr>
+<% } %>
+
+<% pendingRequests.forEach(p => { %>
+<tr>
+  <td>
+    <%= p.userId ? p.userId.username : 'User Deleted' %>
+  </td>
+
+  <td>
+    <%= p.bookId ? p.bookId.title : 'Book Deleted' %>
+  </td>
+
+  <td>
+    <form method="POST" action="/transactions/admin/approve">
+      <input type="hidden" name="txId" value="<%= p._id %>">
+      <button>Approve</button>
+    </form>
+  </td>
+</tr>
+<% }) %>
+</table>
+
+<a href="/admin/dashboard">Back</a>
