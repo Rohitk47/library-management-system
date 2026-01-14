@@ -1,0 +1,23 @@
+<h2>Return Requests</h2>
+
+<table border="1">
+<tr>
+  <th>User</th>
+  <th>Book</th>
+  <th>Action</th>
+</tr>
+
+<% returnRequests.forEach(r => { %>
+<tr>
+  <td><%= r.userId ? r.userId.username : 'N/A' %></td>
+  <td><%= r.bookId ? r.bookId.title : 'N/A' %></td>
+  <td>
+    <a href="/transactions/admin/return/<%= r._id %>">
+      Approve Return
+    </a>
+  </td>
+</tr>
+<% }) %>
+</table>
+
+<a href="/admin/dashboard">Back</a>
