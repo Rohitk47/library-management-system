@@ -1,27 +1,29 @@
-<h2>Issued Book History</h2>
+<h2>My Books</h2>
 
 <table border="1">
 <tr>
-  <th>Transaction ID</th>
-  <th>Book Name</th>
-  <th>Author</th>
-  <th>Issue Date</th>
-  <th>Return Date</th>
-  <th>Actual Return</th>
-  <th>Fine</th>
+  <th>Book</th>
+  <th>Status</th>
+  <th>Action</th>
 </tr>
 
 <% issuedTransactions.forEach(t => { %>
 <tr>
-  <td><%= t._id %></td>
   <td><%= t.bookId.title %></td>
-  <td><%= t.bookId.author %></td>
-  <td><%= t.issueDate.toDateString() %></td>
-  <td><%= t.returnDate.toDateString() %></td>
-  <td><%= t.actualReturnDate ? t.actualReturnDate.toDateString() : 'Not Returned' %></td>
-  <td>₹ <%= t.fine %></td>
+  <td><%= t.status %></td>
+  <td>
+    <% if (t.status === 'Issued') { %>
+      <form method="POST" action="/transactions/request-return">
+        <input type="hidden" name="txId" value="<%= t._id %>">
+        <button>Request Return</button>
+      </form>
+    <% } else { %>
+      ---
+    <% } %>
+  </td>
 </tr>
 <% }) %>
 </table>
 
-<a href="/transactions/availability">Back to Availability</a>
+<br>
+<a href="/transactions/availability">Back</a>
