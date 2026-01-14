@@ -5,18 +5,22 @@
   <th>Name</th>
   <th>Author</th>
   <th>Status</th>
-  <th>Select</th>
+  <th>Action</th>
 </tr>
 
-<form method="POST" action="/transactions/issue">
 <% books.forEach(b => { %>
 <tr>
   <td><%= b.title %></td>
   <td><%= b.author %></td>
   <td><%= b.status %></td>
   <td>
-    <% if (b.status === 'Available') { %>
-      <input type="radio" name="bookId" value="<%= b._id %>" required>
+    <% if (b.status === 'Available' && user.role === 'user') { %>
+      <form method="POST" action="/transactions/request-issue">
+        <input type="hidden" name="bookId" value="<%= b._id %>">
+        <button>Request Issue</button>
+      </form>
+    <% } else { %>
+      ---
     <% } %>
   </td>
 </tr>
@@ -24,20 +28,14 @@
 </table>
 
 <br>
-<button>Issue Book</button>
-<br>
-</form>
 
-<br><br>
+<% if (user.role === 'user') { %>
+<a href="/transactions/my-books">My Books</a><br><br>
+<% } %>
 
-<a href="/transactions/return">Return Book</a> 
-<br>
-<br>
-
-<a href="/transactions/availability">Refresh Availability</a>
-<br>
-
-<br>
-
+<% if (user.role === 'admin') { %>
+<a href="/transactions/admin/pending">Pending Issues</a><br>
+<a href="/transactions/admin/returns">Return Requests</a><br><br>
+<% } %>
 
 <a href="/logout">Logout</a>
