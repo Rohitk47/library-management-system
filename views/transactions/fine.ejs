@@ -1,13 +1,49 @@
-<h2>Fine Payment</h2>
+<h2>Confirm Book Return</h2>
 
-<p>Fine Amount: ₹ <%= fine %></p>
+<table border="1" cellpadding="8">
+  <tr>
+    <th>User</th>
+    <td><%= tx.userId ? tx.userId.username : 'N/A' %></td>
+  </tr>
 
-<form method="POST" action="/transactions/confirm-fine">
-  <% if (fine > 0) { %>
-    <input type="checkbox" name="finePaid" required> Fine Paid
-  <% } %>
-  <br><br>
-  <button>Confirm Payment</button>
+  <tr>
+    <th>Book</th>
+    <td><%= tx.bookId ? tx.bookId.title : 'N/A' %></td>
+  </tr>
+
+  <tr>
+    <th>Issue Date</th>
+    <td><%= tx.issueDate ? tx.issueDate.toDateString() : '-' %></td>
+  </tr>
+
+  <tr>
+    <th>Due Date</th>
+    <td><%= tx.returnDate ? tx.returnDate.toDateString() : '-' %></td>
+  </tr>
+
+  <tr>
+    <th>Return Date</th>
+    <td><%= today.toDateString() %></td>
+  </tr>
+
+  <tr>
+    <th>Late Days</th>
+    <td><%= lateDays %></td>
+  </tr>
+
+  <tr>
+    <th>Fine</th>
+    <td>₹ <%= fine %></td>
+  </tr>
+</table>
+
+<br>
+
+<form method="POST" action="/transactions/admin/confirm-return">
+  <input type="hidden" name="txId" value="<%= tx._id %>">
+  <input type="hidden" name="fine" value="<%= fine %>">
+  <button>Confirm Return</button>
 </form>
 
-<a href="/transactions/availability">Back to Availability</a>
+<br>
+<a href="/transactions/admin/returns">Cancel</a>
