@@ -4,6 +4,83 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* =====================
+   GLOBAL
+===================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =====================
+   ADMIN WELCOME COLOR
+===================== */
+.admin-welcome {
+  background: linear-gradient(135deg, #1f2933, #374151);
+}
+
+
+/* =====================
+   CARD
+===================== */
+.login-card {
+  max-width: 420px;
+  margin: 70px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================
+   WELCOME BANNER
+===================== */
+.welcome-box {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.welcome-box h2 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.welcome-box p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.login-card .btn {
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.login-card .btn-light {
+  background: #f8f9fc;
+  border: 1px solid #ddd;
+}
+
+.login-card .btn-light:hover {
+  background: #e2e6ea;
+}
+
+.login-card .btn-danger {
+  background: #e74a3b;
+  border: none;
+}
+
+.login-card .btn-danger:hover {
+  background: #c0392b;
+}
+
+
 /* ===== LOGIN CARD ===== */
 .login-card {
     max-width: 400px;
