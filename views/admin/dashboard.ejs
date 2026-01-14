@@ -11,19 +11,49 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="bg-light">
 
-  <div class="dashboard-card">
-    <h2 class="dashboard-title">Admin Dashboard</h2>
+  <div class="login-card">
 
-    <div class="dashboard-buttons">
-      <a href="/admin/add-book" class="btn btn-light">Add Book</a>
-      <a href="/admin/add-membership" class="btn btn-light">Add Membership</a>
-      <a href="/admin/users" class="btn btn-light">User Management</a>
-      <a href="/reports" class="btn btn-light">Reports</a>
-      <a href="/transactions/availability" class="btn btn-light">Transactions</a>
-      <a href="/logout" class="btn btn-outline-danger">Logout</a>
+    <!-- WELCOME BANNER -->
+    <div class="welcome-box admin-welcome">
+      <h2>🛠 Welcome Admin</h2>
+      <p>Manage Books • Users • Transactions • Reports</p>
     </div>
+
+    <h4 class="text-center mb-4">Admin Dashboard</h4>
+
+    <div class="d-grid gap-3">
+      <a href="/admin/add-book" class="btn btn-light btn-lg">
+        ➕ Add Book
+      </a>
+
+      <a href="/admin/add-membership" class="btn btn-light btn-lg">
+        💳 Add Membership
+      </a>
+
+      <a href="/admin/users" class="btn btn-light btn-lg">
+        👥 User Management
+      </a>
+
+      <a href="/reports" class="btn btn-light btn-lg">
+        📊 Reports
+      </a>
+
+      <a href="/transactions/admin/pending" class="btn btn-light btn-lg">
+        ⏳ Pending Requests
+      </a>
+
+      <a href="/transactions/admin/returns" class="btn btn-light btn-lg">
+  🔁 Return Requests
+</a>
+
+
+      <a href="/logout" class="btn btn-danger btn-lg">
+        🚪 Logout
+      </a>
+    </div>
+
   </div>
 
 </body>
